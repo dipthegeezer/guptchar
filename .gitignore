@@ -1,0 +1,12 @@
+*.ipr
+*.iws
+*.ids
+target
+activemq-data
+.classpath
+.settings
+.project
+logs
+out
+.idea/
+overlays/
