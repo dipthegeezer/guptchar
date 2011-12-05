@@ -24,6 +24,8 @@ public class AeroQuadMapActivity extends MapActivity {
     private MapView mapView;
     private MapController mc;
 
+    private Context context;
+
     @Override
     protected boolean isRouteDisplayed() {
         return false;  //To change body of implemented methods use File | Settings | File Templates.
@@ -32,13 +34,14 @@ public class AeroQuadMapActivity extends MapActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        context = getBaseContext();
         mapView = (MapView) findViewById(R.id.mapview1);
         mc = mapView.getController();
 
         lm = (LocationManager)
-            getSystemService(Context.LOCATION_SERVICE);
+            getSystemService(context.LOCATION_SERVICE);
 
-        locationListener = new MeLocationListener( mapView, mc);
+        locationListener = new MeLocationListener( mapView, mc, context);
 
         lm.requestLocationUpdates(
             LocationManager.GPS_PROVIDER,

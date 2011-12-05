@@ -9,3 +9,4 @@ activemq-data
 logs
 out
 overlays/
+.idea/workspace.xml

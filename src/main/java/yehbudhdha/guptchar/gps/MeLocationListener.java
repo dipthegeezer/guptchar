@@ -19,27 +19,28 @@ import com.google.android.maps.MapView;
 public class MeLocationListener implements LocationListener{
     private MapView mapView;
     private MapController mapController;
+    private Context context;
 
-    public MeLocationListener(MapView mv, MapController mc){
-        mapView = mv;
-        mapController = mc;
+    public MeLocationListener(MapView mapView, MapController mapController, Context context) {
+        this.mapView = mapView;
+        this.mapController = mapController;
+        this.context = context;
     }
 
     @Override
     public void onLocationChanged(Location location) {
         if (location != null) {
-            Toast.makeText(getBaseContext(),
+            Toast.makeText(context,
                "Location changed : Lat: " + location.getLatitude() +
-                " Lng: " + loc.getLongitude(),
+                " Lng: " + location.getLongitude(),
                     Toast.LENGTH_SHORT).show();
 
-                GeoPoint p = new GeoPoint(
-                        (int) (location.getLatitude() * 1E6),
-                        (int) (location.getLongitude() * 1E6));
-                mapController.animateTo(p);
-                mapController.setZoom(16);
-                mapView.invalidate();
-            }
+            GeoPoint p = new GeoPoint(
+                (int) (location.getLatitude() * 1E6),
+                (int) (location.getLongitude() * 1E6));
+            mapController.animateTo(p);
+            mapController.setZoom(16);
+            mapView.invalidate();
         }
     }
 
@@ -57,5 +58,4 @@ public class MeLocationListener implements LocationListener{
     public void onProviderDisabled(String s) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
-
 }
