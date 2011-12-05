@@ -35,7 +35,10 @@ public class AeroQuadMapActivity extends MapActivity {
         setContentView(R.layout.main);
 
         context = getBaseContext();
+
         mapView = (MapView) findViewById(R.id.mapview1);
+        mapView.setBuiltInZoomControls(true);
+
         mc = mapView.getController();
 
         lm = (LocationManager)
