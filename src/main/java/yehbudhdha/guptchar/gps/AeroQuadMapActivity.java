@@ -4,10 +4,10 @@ import android.content.Context;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import com.example.R;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import yehbudhdha.guptchar.R;
 
 /**
  * Created by IntelliJ IDEA.
