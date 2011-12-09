@@ -30,10 +30,10 @@ public class MeLocationListener implements LocationListener{
     @Override
     public void onLocationChanged(Location location) {
         if (location != null) {
-            Toast.makeText(context,
-               "Location changed : Lat: " + location.getLatitude() +
-                " Lng: " + location.getLongitude(),
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,
+            //   "Location changed : Lat: " + location.getLatitude() +
+            //    " Lng: " + location.getLongitude(),
+            //        Toast.LENGTH_SHORT).show();
 
             GeoPoint p = new GeoPoint(
                 (int) (location.getLatitude() * 1E6),

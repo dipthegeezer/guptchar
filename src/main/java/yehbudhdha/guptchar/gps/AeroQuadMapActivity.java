@@ -7,7 +7,10 @@ import android.os.Bundle;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import com.google.android.maps.MyLocationOverlay;
 import yehbudhdha.guptchar.R;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -38,8 +41,15 @@ public class AeroQuadMapActivity extends MapActivity {
 
         mapView = (MapView) findViewById(R.id.mapview1);
         mapView.setBuiltInZoomControls(true);
-
         mc = mapView.getController();
+
+        //set map overlays
+        List overlays = mapView.getOverlays();
+		MyLocationOverlay lo;
+        lo = new MyLocationOverlay(context, mapView);
+        overlays.add(lo);
+		lo.enableMyLocation();
+        lo.enableCompass();
 
         lm = (LocationManager)
             getSystemService(context.LOCATION_SERVICE);
